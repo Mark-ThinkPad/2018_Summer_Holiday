@@ -14,6 +14,7 @@
     - [Debian 9.4.0 安装](#debian-940-安装)
     - [Linux基本命令](#linux基本命令)
     - [Node.js环境搭建](#nodejs环境搭建)
+    - [mongodb数据库](#mongodb数据库)
 
 <!-- /TOC -->
 
@@ -75,7 +76,7 @@
 3. vim基本操作
 
 - 正常模式：`连续输入两个小写d` 删除当前的一行，　`输入一个大写Ｄ` 把光标在该行后面的内容删除，`输入一个小写ｐ`　复制该行到下一行
-- 插入模式：`a` `i` `o`
+- 插入模式：`a` `i` `o` `大写G`在末尾插入
 - 命令模式：`:XXX`, `:ｗq`保存并退出
 
 ---
@@ -83,5 +84,32 @@
 ## Node.js环境搭建
 
 - git clone https://github.com/cnpm/nvm.git
+- 在`bashrc`中加入`source /XX/XX/nvm/nvm.sh`
+- `source ~/.bashrc`
+- `nvm`
+(有了nvm之后可以安装node.js的任意版本)
+- `nvm install 10.5.0`下载node.js 10.5.0版本
+
+---
+
+## mongodb数据库
+
+- `sudo apt-get install mongodb`
+- `sudo apt-get install tmux`
+- `mkdir XXX`为数据库创建一个文件夹
+- `systemctl disable mongodb`
+- `tmux`进入一个新的终端
+- 在这个新的终端输入`mongod --dbpath /home/db`
+- `Ctrl + D`回到原来的终端
+- `mongo`
+- `show dbs`查看存储情况
+- `use 数据库名`使用数据库
+- `db.数据集合名.instert({"XXX":"XXX"})`插入数据(增)
+- `db.数据集合名.find()`查看当前数据库的信息
+- `db.数据集合名.drop()`删除指定的数据集合(删)
+- `db.dropDatabase()`删库
+- `db.数据集合名.update({...})`改
+- `db.数据集合名.findOne({...})`查
+
 
 
