@@ -15,6 +15,15 @@
     - [Linux基本命令](#linux基本命令)
     - [Node.js环境搭建](#nodejs环境搭建)
     - [mongodb数据库](#mongodb数据库)
+    - [Python双版本的配置](#python双版本的配置)
+    - [晚上自习](#晚上自习)
+        - [输出Python3关键字](#输出python3关键字)
+        - [注释](#注释)
+        - [行与缩进](#行与缩进)
+        - [多行语句](#多行语句)
+        - [数字类型(number)](#数字类型number)
+        - [字符串(string)](#字符串string)
+            - [实例0](#实例0)
 
 <!-- /TOC -->
 
@@ -111,5 +120,118 @@
 - `db.数据集合名.update({...})`改
 - `db.数据集合名.findOne({...})`查
 
+---
 
+## Python双版本的配置
 
+- 
+
+---
+
+## 晚上自习
+
+### 输出Python3关键字
+
+```python
+import keyword
+keyword.kwlist
+```
+
+### 注释
+
+> 以`#`开头, 或者用`头尾的'''/"""`(类似于markdown的大代码框)
+
+实例
+```python
+#!/usr/bin/python3
+
+# 第一个注释
+print("Hello, Python3!") # 第二个注释
+```
+
+```python
+#!/usr/bin/python3
+
+# 第一个注释
+# 第二个注释
+
+'''
+第三注释
+第四注释
+'''
+
+"""
+第五注释
+第六注释
+"""
+print("Hello, Python3!")
+```
+### 行与缩进
+
+- <font color="dc143c">Python使用缩进来表示代码块, 不需要使用大括号`{}`. 缩进的空格数是可变的, 但是同一个代码块的语句必须包括相同的缩进空格数.</font>
+
+### 多行语句
+
+- 使用`\`右斜杠来实现多行语句
+
+演示
+```python
+total = item_one + \
+        item_two + \
+        item_three
+```
+
+- 在[], {}, 或()中的多行语句, 不需要使用右斜杠`\`
+
+演示
+```python
+total = ['item_one', 'item_two', 'item_three', 'item_four', 'item_five']
+```
+
+### 数字类型(number)
+
+- int(整数), 只有一种整数类型int, 表示为长整型
+- bool(布尔), 如True
+- float(浮点数), 如1.23, 3E-2
+- complex(负数), 如1+2j, 1.1+2.2j
+
+### 字符串(string)
+
+- Python中使用单引号和双引号完全相同
+- 使用三引号(`'''`或`"""`)可以指定一个多行字符串
+- 转义符'\'
+- 反斜杠可以用来转义, 使用r可以让反斜杠不发生转义. 如`r"this is a line with \n"`, \n会显示, 并不是换行符.
+- 按字面意思级联字符串, 如`"this"` `"is"` `"string"`会被自动转换成`this is string`
+- 字符串可以使用`+`运算符连接在一起, 用`*`运算符重复
+- Python中的字符串有两种索引方式, 从左往右以0开始, 从右往左以-1开始.
+- Python中的字符串不能改变.
+- Python没有单独的字符类型, 一个字符就是长度为1的字符串.
+- 字符串的截取的语法格式如下: `变量[头下标:尾下标]`
+
+演示
+```python
+word = '字符串'
+sentence = "这是一个句子"
+paragraph ="""这是一个段落,
+可以由多行组成"""
+```
+
+#### 实例0
+```python
+#!/usr/bin/python3
+
+str='Runoob'
+
+print(str) #输出字符串
+print(str[0:-1]) # 输出第一个到倒数第二个的所有字符
+print(str[0]) # 输出字符串第一个字符
+print(str[2:5]) # 输出第三个开始到第五个字符的字符
+print(str[2:]) # 输出从第三个开始的后的所有字符
+print(str * 2) # 输出字符串连续两次
+print(str + '你好') # 连接字符串
+
+print('----------------------')
+
+print('hello\nrunoob') # 使用反斜杠(\)+n转义特殊字符
+print(r'hello\nrunoob') # 在字符串前面添加一个 r , 表示原始字符串, 不会发生转义
+```
