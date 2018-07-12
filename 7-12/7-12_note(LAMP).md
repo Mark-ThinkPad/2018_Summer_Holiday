@@ -11,6 +11,7 @@
 - [7.12.note](#712note)
     - [Content](#content)
     - [Debian 9.4.0 安装](#debian-940-安装)
+- [](#)
 
 <!-- /TOC -->
 
@@ -33,4 +34,8 @@
 7. 更换国内源(中科大的源快一些)(配置文件的位置是`/etc/apt/sources.list`)
 
 8. 安装VIM
+
+---
+
+##
 
