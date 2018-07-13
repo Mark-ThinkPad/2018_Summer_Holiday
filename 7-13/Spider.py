@@ -45,7 +45,22 @@ req = s.get(InfoUrl)
 html = req.text
 soup = BeautifulSoup(html, "lxml")
 trs = soup.find_all("tr")
-for tr in trs:
-    print(tr)
+for tr in trs[1:-1]:
+    tds = tr.find_all("td")
+    if len(tds) < 2:
+        continue
+    print("-------------------------------")
+    key1 = tds[0].getText()
+    val1 = tds[1].getText()
+    key2 = tds[2].getText()
+    val2 = tds[3].getText()
+    print(key1+val1+"\t"+key2+val2)
+    '''
+    for idx, td in enumerate(tds):
+        if idx in [4]:
+            continue
+        print(td.getText())
+    '''
 
+    
 
