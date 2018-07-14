@@ -13,7 +13,7 @@
         - [(2)排版美化版](#2排版美化版)
         - [(3) 用post方法实现模拟登陆](#3-用post方法实现模拟登陆)
         - [(4)将爬到的数据写入数据库](#4将爬到的数据写入数据库)
-        - [当天的作业, 爬取教务处的成绩](#当天的作业-爬取教务处的成绩)
+        - [当天的作业, 爬取教务处的成绩(文件为SpiderHW.py)](#当天的作业-爬取教务处的成绩文件为spiderhwpy)
     - [Python3日常复习](#python3日常复习)
         - [等待用户输入](#等待用户输入)
         - [在同一行显示多行语句使用`;`分号分隔(类似于C语言)](#在同一行显示多行语句使用分号分隔类似于c语言)
@@ -21,6 +21,7 @@
         - [print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end="".](#print-默认输出是换行的如果要实现不换行需要在变量末尾加上-end)
         - [多个变量赋值](#多个变量赋值)
         - [标准数据类型](#标准数据类型)
+            - [Number(数字)](#number数字)
 
 <!-- /TOC -->
 
@@ -266,7 +267,7 @@ col.insert_one(infos)
 
 ```
 
-### 当天的作业, 爬取教务处的成绩
+### 当天的作业, 爬取教务处的成绩(文件为SpiderHW.py)
 
 ```python
 from bs4 import BeautifulSoup # 解析网页
@@ -423,4 +424,27 @@ a, b, c = 1, 2, "runoob"
 
 > Python3 的六个标准数据类型中：
 - 不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组)
-- 可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）
+- 可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合)
+
+#### Number(数字)
+
+- Python3 支持 *int*、*float*、*bool*、*complex(复数)*
+- Python3中int表示为长整型, 而且是唯一的整数类型
+- type(变量名)函数可以用来查询类型, print(type(XXX))可以输出返回的类型
+- isinstance(变量名, 猜的类型), 返回True就是猜对了
+> isinstance 和 type 的区别在于：
+```python
+class A:
+    pass
+
+class B(A):
+    pass
+
+isinstance(A(), A)  # returns True
+type(A()) == A      # returns True
+isinstance(B(), A)    # returns True
+type(B()) == A        # returns False
+```
+> 区别就是:
+- type()不会认为子类是一种父类类型
+- isinstance()会认为子类是一种父类类型

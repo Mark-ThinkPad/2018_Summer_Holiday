@@ -108,3 +108,8 @@ for tr in trs[3:]:
     #col.insert(infos, '_id'='5b48ae4eac3b721dd959e9f' + str(n))
     #n = n + 1
 
+tables = soup.find_all("table")
+print(tables)
+print(len(tables))
+point_trs = tables[0].find_all("tr")
+garde_trs = tables[1].find_all("tr")
