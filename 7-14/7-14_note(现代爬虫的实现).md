@@ -355,3 +355,4 @@ col.insert(infoss)
 - 状态码: 200成功
 - 必须在同一个域名下使用(同域)
 - 基本原理(demo.html)
+- 具体实例查看`paging`文件夹
