@@ -57,12 +57,13 @@ vals = []
 client = MongoClient("localhost", 27017)
 db = client["scoredb"]
 col = db["score"]
+'''
 n = 0
 for tr in trs[3:]:
     tds = tr.find_all("td")
     if len(tds) < 1:
         continue
-    print("---------------------")
+    #print("---------------------")
     key1 = "学年学期"
     key2 = "课程代码"
     key3 = "课程序号"
@@ -104,20 +105,63 @@ for tr in trs[3:]:
     #newObjectId = ObjectId()
     #strin=str(n)
     #infos['_id'] = '5b48ae4eac3b721dd959e9f' + strin
-    print(infos)
+    #print(infos)
     #col.insert(infos, '_id'='5b48ae4eac3b721dd959e9f' + str(n))
     #n = n + 1
-
+'''
 tables = soup.find_all("table") # 获取观察网页结构筛选table
-print(tables)
-print(len(tables)) # 获取table的个数(len()其实是返回长度的)
+#print(tables)
+#print(len(tables)) # 获取table的个数(len()其实是返回长度的)
 point_trs = tables[0].find_all("tr") # 绩点的tr标签们
-garde_trs = tables[1].find_all("tr") # 成绩的tr标签们
+grade_trs = tables[1].find_all("tr") # 成绩的tr标签们
 point_keys = []
-all_point_keys = []
+all_point_keys = ["类型", "必修门数", "必修总学分", "必修平均绩点"]
 grade_keys = []
 points = []
 grades = []
 all_point = {}
 point = {}
 grade = {}
+
+#print(point_trs)
+time = "2"+point_trs[-1].getText().split("2")[-1]# 获取查询时间
+print(time)
+all_point_ths = point_trs[-2].find_all("th")
+
+for idx, all_point_th in enumerate(all_point_ths): # enumerate()函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中
+    all_point[all_point_keys[idx]] = all_point_th.getText()
+print(all_point)
+
+for point_th in point_trs[0].find_all("th"):
+    point_keys.append(point_th.getText())
+for grade_th in grade_trs[0].find_all("th"):
+    grade_keys.append(grade_th.getText())
+print(point_keys)
+print(grade_keys)
+print("-----"*20)
+print(point_trs)
+for point_tr in point_trs[1:-2]:
+    point = {}
+    point_tds = point_tr.find_all("td")
+    for idx, point_td in enumerate(point_tds):
+        point[point_keys[idx]] = point_td.getText()
+    points.append(point)
+print(points)
+print("-----"*20)
+
+for grades_tr in grade_trs[1:]:
+    grade = {}
+    grades_tds = grades_tr.find_all("td")
+    for idx, grade_td in enumerate(grades_tds):
+        grade[grade_keys[idx]] = grade_td.getText().strip()
+    grades.append(grade)
+print(grades)
+
+# 下面整理数据
+infos["统计时间"] = time
+infos["绩点"] = points
+infos["总绩点"] = all_point
+infos["成绩"] = grades
+
+# 下面是插入到数据库
+col.insert(infos)
