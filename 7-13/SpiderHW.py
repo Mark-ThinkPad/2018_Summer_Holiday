@@ -108,8 +108,16 @@ for tr in trs[3:]:
     #col.insert(infos, '_id'='5b48ae4eac3b721dd959e9f' + str(n))
     #n = n + 1
 
-tables = soup.find_all("table")
+tables = soup.find_all("table") # 获取观察网页结构筛选table
 print(tables)
-print(len(tables))
-point_trs = tables[0].find_all("tr")
-garde_trs = tables[1].find_all("tr")
+print(len(tables)) # 获取table的个数
+point_trs = tables[0].find_all("tr") # 绩点的tr标签们
+garde_trs = tables[1].find_all("tr") # 成绩的tr标签们
+point_keys = []
+all_point_keys = []
+grade_keys = []
+points = []
+grades = []
+all_point = {}
+point = {}
+grade = {}
