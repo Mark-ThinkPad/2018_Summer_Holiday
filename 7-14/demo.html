@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="result"></div>
+    <script>
+        // 创建XMLHttpRequest对象
+        var xhr = new XMLHttpRequest();
+        // 初始化请求参数
+        xhr.open("GET", 'data.txt', true); //post方法需要添加一个请求头
+        // 发送请求
+        var data = {
+            name: "dreamfish"
+        }
+        xhr.send(null)
+        // 监听数据通道变化
+        xhr.setRequestHeader("Content Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                console.log(xhr.response);
+            }
+        }
+    </script>
+    <script>
+        $.ajax
+    </script>
+</body>
+</html>
