@@ -110,7 +110,7 @@ for tr in trs[3:]:
 
 tables = soup.find_all("table") # 获取观察网页结构筛选table
 print(tables)
-print(len(tables)) # 获取table的个数
+print(len(tables)) # 获取table的个数(len()其实是返回长度的)
 point_trs = tables[0].find_all("tr") # 绩点的tr标签们
 garde_trs = tables[1].find_all("tr") # 成绩的tr标签们
 point_keys = []
