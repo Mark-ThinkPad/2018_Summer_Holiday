@@ -12,7 +12,7 @@ def func(user_id, password):
     Url = "http://221.233.24.23/eams/login.action"
     InfoUrl = "http://221.233.24.23/eams/stdDetail.action"
     GradeUrl = "http://221.233.24.23/eams/teach/grade/course/person!historyCourseGrade.action?projectType=MAJOR"
-    driver = webdriver.Chrome()
+    driver = webdriver.PhantomJS("/home/mark/phantomjs-2.1.1-linux-x86_64/bin/phantomjs") # 这玩意不灵的话在括号里加入phantomjs的路径
     driver.get(Url)
     username = driver.find_element_by_id("username")
     passwd = driver.find_element_by_id("password")
@@ -111,5 +111,7 @@ def func(user_id, password):
     infos["总绩点"] = all_point
     infos["成绩"] = grades
     infos["user_id"] = user_id
-    infos["passwd"] = passwd
+    #infos["passwd"] = passwd 错误示范
+    infos["passwd"] = password
     return infos
+    #func("201704495","201704495")
