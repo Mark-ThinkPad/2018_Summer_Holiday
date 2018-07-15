@@ -97,7 +97,7 @@
 - `source ~/.bashrc`
 - `nvm`
 (有了nvm之后可以安装node.js的任意版本)
-- `nvm install 10.5.0`下载node.js 10.5.0版本
+- `nvm install v10.5.0`下载node.js 10.5.0版本
 
 ---
 
